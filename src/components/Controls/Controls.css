@@ -1,0 +1,11 @@
+.controls{
+    width: 50rem;
+    background: beige;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin: auto;
+    border-radius: 5px;
+    padding: 32px 0;
+    box-shadow: 0 0 24px 5px rgba(0,0,0,0.07);
+}
