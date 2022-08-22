@@ -32,10 +32,28 @@ class Shopping extends Component{
 
         console.log("testing add")
     }
+
+    removeProductHandler = (type) =>{
+        const prevCount = this.state.products[type]
+        const updateCount = prevCount - 1
+        const updateProductCounter={
+            ...this.state.products
+        }
+        updateProductCounter[type] = updateCount
+        const priceSub = prices[type]
+        const prevPrice = this.state.totalPrice
+        const updatePrice = priceSub - prevPrice
+        this.setState({totalPrice:updatePrice , products:updateProductCounter})
+
+        console.log("testing remove")
+    }
     render(){
         return(
             <Wrapper>
-                <Controls productAdd={this.addProductsHandler}/>
+                <Controls
+                productAdd={this.addProductsHandler}
+                productRem={this.removeProductHandler}
+                />
             </Wrapper>
         )
     }
