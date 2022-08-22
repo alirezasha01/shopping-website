@@ -19,5 +19,8 @@
 
 .builder div{
     color: blue;
+}
 
+p{
+    margin:0 20px
 }

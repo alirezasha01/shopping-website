@@ -1,6 +1,7 @@
 import React from "react";
 import "./Controls.css"
 import Builder from "./Builder/Builder";
+import {prices} from "../../containers/Shopping/Shopping";
 
 const products = [
     {title : "product 1" , type : 'product1'},
@@ -11,6 +12,9 @@ const products = [
 const Controls = (props) =>{
     return(
         <div className="controls">
+            <div>
+                <p>Total Price: {props.totalPrice}$</p>
+            </div>
             {products.map((item)=>{
                 return(
                 <Builder
@@ -18,6 +22,8 @@ const Controls = (props) =>{
                 title={item.title}
                 add={()=>props.productAdd(item.type)}
                 remove={()=>props.productRem(item.type)}
+                price={prices[item.type]}
+                count={props.counter[item.type]}
                 />
                 )
             })}

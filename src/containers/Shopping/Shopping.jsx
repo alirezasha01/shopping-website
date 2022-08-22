@@ -2,11 +2,11 @@ import {React , Component} from "react";
 import Wrapper from "../../hoc/Wrapper";
 import Controls from "../../components/Controls/Controls";
 
-const prices = {
-    product1: 55000,
-    product2: 66000,
-    product3: 25000,
-    product4: 33000,
+export const prices = {
+    product1: 55,
+    product2: 66,
+    product3: 25,
+    product4: 33,
 }
 class Shopping extends Component{
     state={
@@ -29,8 +29,6 @@ class Shopping extends Component{
         const prevPrice = this.state.totalPrice
         const updatePrice = priceAdd + prevPrice
         this.setState({totalPrice:updatePrice , products:updateProductCounter})
-
-        console.log("testing add")
     }
 
     removeProductHandler = (type) =>{
@@ -42,10 +40,10 @@ class Shopping extends Component{
         updateProductCounter[type] = updateCount
         const priceSub = prices[type]
         const prevPrice = this.state.totalPrice
-        const updatePrice = priceSub - prevPrice
+        const updatePrice = prevPrice - priceSub
+        if(updatePrice>=0){
         this.setState({totalPrice:updatePrice , products:updateProductCounter})
-
-        console.log("testing remove")
+        }
     }
     render(){
         return(
@@ -53,6 +51,8 @@ class Shopping extends Component{
                 <Controls
                 productAdd={this.addProductsHandler}
                 productRem={this.removeProductHandler}
+                totalPrice={this.state.totalPrice}
+                counter={this.state.products}
                 />
             </Wrapper>
         )

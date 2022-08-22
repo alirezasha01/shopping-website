@@ -7,6 +7,8 @@ const Builder = (props) =>{
             <div>{props.title}</div>
             <button onClick={props.add}>Add</button>
             <button onClick={props.remove}>Remove</button>
+            <p>Price : {props.price}$</p>
+            <p>count : {props.count}</p>
         </div>
     )
 }
